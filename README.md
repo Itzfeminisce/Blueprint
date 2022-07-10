@@ -61,6 +61,10 @@ user.withId(2).update({name:"Ayo"}) // same as above
 
 ### Accessors
 
+Accessors allow to modify fields before sending to controller/view
+
+This operation is carried out AFTER fetching data from storage 
+
 - Just add the method `getAttribute[FileName](){}` in your `User` class
 >Example below
 
