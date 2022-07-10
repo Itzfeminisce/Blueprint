@@ -4,7 +4,8 @@ Blueprint is a standalone code file that adds useful methods to your model and m
 
 
  # Features
- ##### Below are the list of features this *light weight* Library allows you to use
+
+Below are the list of features this *light weight* code file allows you to use
 
 ## CRUD Operations
 ````
