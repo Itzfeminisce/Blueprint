@@ -8,7 +8,7 @@ Blueprint is a standalone code file that adds useful methods to your model and m
 Below are the list of features this *light weight* code file allows you to use
 
 ## CRUD Operations
-````
+````javascript
 class User extends Blueprint {
    constructor()
    ...
@@ -23,16 +23,19 @@ class User extends Blueprint {
 
 > All methods returns promise
 
-````
+````javascript
 const user = new User()
+
+user.createDependencies();
+
 
 user.read(2) //{name:'foo'}
 
 user.readAll()  // [{name:'foo'}, ...]
 
-user.withId(2).read() `same as user.read(2)`
+user.withId(2).read() // same as user.read(2)
 
-user.withId(2).readAll() `Same as user.readAll(), .withId(id) is ignored`
+user.withId(2).readAll() // Same as user.readAll(), .withId(id) is ignored
 
 user.delete(4) // delete field with id=4
 
@@ -46,15 +49,9 @@ user.withId(2).update({name:"Ayo"}) // same as above
 
 ````
 
+Make sure to call `user.createDependencies()` in your controller. This will help to register your dependencies for easy use cases.
 
-
-
-
-
-
-
-
-
+Take note: Please dont call this method in your model as this will conflict with other dependencies in other models.
 
 
 ## Other features
@@ -68,7 +65,7 @@ This operation is carried out AFTER fetching data from storage
 - Just add the method `getAttribute[FileName](){}` in your `User` class
 >Example below
 
-```
+```javascript
 class User extends BluePrint {
  ...
  getAttributeName(){
@@ -77,7 +74,7 @@ class User extends BluePrint {
 ````
 
 
-```
+```javascript
 user.withId(id).read().then()
  // returns FOO
 
@@ -110,7 +107,7 @@ They take effect on `create()` and `update()` methods.
 - Just add the method `setAttribute[Field]` in your `User` class
 > Example below
 
-```
+```javascript
 class User extends Blueprint {
  ...
  setAttributeName(){
@@ -120,7 +117,7 @@ class User extends Blueprint {
 
 > In your code, suppose you have:
 
-````
+````javascript
 user.create({name:"foo", ... })
 
 user.readAll()
@@ -141,7 +138,7 @@ Dependencies allows to add sub-classes without having to explicitly `require()` 
 
 Add `dependencies()` in your `User` class as follows
 
-````
+````javascript
 class User extends Blueprint {
   ...
 
@@ -182,7 +179,7 @@ They only take effect on `read()` and `readAll()` methods.
 
 Add `hidden()` in your `User` class as follows
 
-````
+````javascript
 class User extends Blueprint {
   ...
 
@@ -212,7 +209,7 @@ However, whatever you pass to your methods can completely be handled by you.
 
 You will access your arguments in your model as follows
 
-````
+````javascript
 class User extends Blueprint {
   ...
 
@@ -225,8 +222,8 @@ class User extends Blueprint {
 
 # To expect
 
-More handy methods are still coming to help create relationship s
-between models and assist to manipulate dependencies more easier.
+More handy methods are still coming to help create relationships
+between models and assist to manipulate dependencies more easily.
 
 
 # Contributions
