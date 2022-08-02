@@ -226,8 +226,8 @@ class Blueprint {
       //    console.log("applicable", applicable)
           switch (method) {
             case "delete":
-              return applicable;
-              break;
+//              return applicable;
+    //          break;
 
             case "create":
             case "update":
