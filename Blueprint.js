@@ -40,7 +40,7 @@ class Blueprint {
       if (
         ["string", "array"].includes(ClassHelper.type()(this.dependencies()))
       ) {
-        this.#dependencies = [].concat(this.dependencies());
+        this.#dependencies.concat(this.dependencies());
       } else {
         throw (
           "Invalid return type detected. Expected string or array, received " +
