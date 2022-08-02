@@ -207,7 +207,7 @@ class Blueprint {
               case "object":
                 //               this.id = this.id ?? null;
                 arg1 = this.#applySetterAttributes(arg1);
-                args = this.#applySetterAttributes(args);
+              //  args = this.#applySetterAttributes(args);
                 args = this.#applySetterAttributes(args);
 
                 applicable = fn.apply(this, [arg1, args]);
